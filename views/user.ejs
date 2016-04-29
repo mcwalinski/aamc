@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html ng-app="userApp"><html>
+  <% include partials/nav.ejs %>  
+  <body ng-controller="userCtrl">
+    <div class="container-fluid" ng-init="singleUser('<%= userId %>')">
+      <div class="row">
+        <div class="col-sm-12 col-md-12 main">
+          
+          <h1 class="page-header">
+            {{user}}
+          </h1>
+          
+          <h5>
+            Created: {{ user._id | creationDate | date:'MMM d, y h:mm:ss a' }}
+          </h5>
+          
+          <div class="col-sm-12">
+            <p>
+              {{user}}
+            </p>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+
+   </body>
+   <% include partials/javascripts.ejs %>  
+</html>

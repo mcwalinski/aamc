@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html ng-app="userApp"><html>
+  <% include partials/nav.ejs %>  
+  <body ng-controller="userCtrl">
+    <div class="container-fluid" ng-init="getUsers()">
+      <div class="row">
+        <div class="col-sm-12 col-md-12 main">
+          
+          <h1 class="page-header">Dashboard - Users</h1>
+          
+          <div class="col-sm-12">
+            Hello welcome to your directory.  You can search below.
+          </div>
+          <br><br>
+          <form class="col-md-12 form-group input-group-lg">
+            <input ng-model="query" type="text" class="form-control" placeholder="Search..." autofocus>
+          </form>
+
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>
+                    <a href="#" ng-click="sortType = 'title'; sortReverse = !sortReverse">
+                      Title
+                      <span ng-show="sortType == 'title' && !sortReverse" class="fa fa-caret-up"></span>
+                      <span ng-show="sortType == 'title' && sortReverse" class="fa fa-caret-down"></span>
+                    </a>
+                  </th>
+                  <th>
+                    Filter
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat="user in users | filter:query | unique: '_id' | orderBy:sortType:sortReverse">
+                  <td><a href="/user/{{user}}">{{ user }}</a></td>
+                  <td>{{ user }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+   </body>
+   <% include partials/javascripts.ejs %>  
+</html>
