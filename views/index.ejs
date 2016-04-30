@@ -12,20 +12,32 @@
             Hello welcome to your directory.  You can search below.
           </div>
           <br><br>
-              
+           
+          <div class="col-md-12">    
+
+            <div class="col-md-6">
+              <h4>Select a user</h4>
               <label for="users"> Users: </label>
               <select ng-options="user.name for user in users | orderBy :selectedOption" name="userSelect" id="users" ng-model="selectedUser">
-                <option value="{{user}}"></option>
+                <option value="">-- select a user --</option>
               </select>
-
+              <span><b>Selected User</b>: {{selectedUser.name}}</span>
+            </div>
+            
+            <div class="col-md-6">
+              <h4>Select a sortable option</h4>
               <label for="options"> Options: </label>
               <select ng-options="option for option in userOptions" name="userOption" id="options" ng-model="selectedOption">
-                <option value="{{option}}"></option>
+                <option value="">-- select an option --</option>
               </select>
-              
-          <form class="col-md-12 form-group input-group-lg">
-            <input ng-model="query" type="text" class="form-control" placeholder="Search..." autofocus>
-          </form>
+              <span><b>Selected Option</b>: {{selectedOption}}</span>
+            </div>
+
+            <div class="col-md-12">
+              <input ng-model="query" type="text" class="form-control" id="userSearch" placeholder="Search..." autofocus>
+            </div>
+
+          </div>
 
           <div class="table-responsive">
             <table class="table table-striped">
@@ -39,7 +51,7 @@
                   <td>{{ user.id }}</td>
                   <td><a href="/user/{{user.id}}">{{ user.name }}</a></td>
                   <td>{{ user.username }}</td>
-                  <td>{{ user.email | lowercase}}</td>
+                  <td><a href="mailto:{{user.email}}?Subject={{user.company.catchPhrase}}" target="_top">{{ user.email | lowercase}}</td>
                   <td> 
                     <p ng-repeat="(k,v) in user.address"> {{k | capitalize}}: {{v}} </p> 
                   </td>
