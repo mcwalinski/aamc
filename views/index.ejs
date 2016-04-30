@@ -6,7 +6,7 @@
       <div class="row">
         <div class="col-sm-12 col-md-12 main">
           
-          <h1 class="page-header">Dashboard - Users</h1>
+          <h1 class="page-header">AAMC Users - Dashboard</h1>
           
           <div class="col-sm-12">
             Hello welcome to your directory.  You can search below.
@@ -18,14 +18,10 @@
                 <option value="{{user}}"></option>
               </select>
 
-              <!-- {{selectedUser}} -->
-
               <label for="options"> Options: </label>
               <select ng-options="option for option in userOptions" name="userOption" id="options" ng-model="selectedOption">
                 <option value="{{option}}"></option>
               </select>
-
-              <!-- {{selectedOption}} -->
               
           <form class="col-md-12 form-group input-group-lg">
             <input ng-model="query" type="text" class="form-control" placeholder="Search..." autofocus>
@@ -35,22 +31,23 @@
             <table class="table table-striped">
               <thead>
                 <tr>
-                  <th>
-                    <a href="#" ng-click="sortType = 'title'; sortReverse = !sortReverse">
-                      Title
-                      <span ng-show="sortType == 'title' && !sortReverse" class="fa fa-caret-up"></span>
-                      <span ng-show="sortType == 'title' && sortReverse" class="fa fa-caret-down"></span>
-                    </a>
-                  </th>
-                  <th>
-                    Filter
-                  </th>
+                  <th ng-repeat="option in userOptions">{{option | capitalize}}</th>
                 </tr>
               </thead>
               <tbody>
-                <tr ng-repeat="user in users | filter:query | unique: '_id' | orderBy:sortType:sortReverse">
-                  <td><a href="/user/{{user}}">{{ user }}</a></td>
-                  <td>{{ user }}</td>
+                <tr ng-repeat="user in users | filter:query | orderBy :selectedOption">
+                  <td>{{ user.id }}</td>
+                  <td><a href="/user/{{user.id}}">{{ user.name }}</a></td>
+                  <td>{{ user.username }}</td>
+                  <td>{{ user.email | lowercase}}</td>
+                  <td> 
+                    <p ng-repeat="(k,v) in user.address"> {{k | capitalize}}: {{v}} </p> 
+                  </td>
+                  <td>{{ user.phone }}</td>
+                  <td><a href="//{{user.website}}" target="_blank">{{ user.website }}</a></td>
+                  <td>
+                    <p ng-repeat="(k,v) in user.company"> {{k | capitalize}}: {{v}} </p>
+                  </td>
                 </tr>
               </tbody>
             </table>
