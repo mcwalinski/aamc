@@ -12,6 +12,21 @@
             Hello welcome to your directory.  You can search below.
           </div>
           <br><br>
+              
+              <label for="users"> Users: </label>
+              <select ng-options="user.name for user in users | orderBy :selectedOption" name="userSelect" id="users" ng-model="selectedUser">
+                <option value="{{user}}"></option>
+              </select>
+
+              <!-- {{selectedUser}} -->
+
+              <label for="options"> Options: </label>
+              <select ng-options="option for option in userOptions" name="userOption" id="options" ng-model="selectedOption">
+                <option value="{{option}}"></option>
+              </select>
+
+              <!-- {{selectedOption}} -->
+              
           <form class="col-md-12 form-group input-group-lg">
             <input ng-model="query" type="text" class="form-control" placeholder="Search..." autofocus>
           </form>

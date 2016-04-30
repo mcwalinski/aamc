@@ -11,7 +11,9 @@ user.controller('userCtrl', function ($scope, $http) {
 	$scope.search   	= '';     // set the default search/filter term
   $scope.newUser = {}; // create object to contain new user
   $scope.messages = {}; // create object to contain messages to the user
-	
+  $scope.users = [];
+  $scope.userOptions = [];
+
 	$(function () {
 	  $('[data-toggle="tooltip"]').tooltip()
 	})
@@ -28,7 +30,16 @@ $scope.getUsers = function() {
   		success(function(data) {
     	$scope.users = data;
     	window.console.log($scope.users);
+      angular.forEach($scope.users, function(value, key){
+          angular.forEach(value, function(v, k){       
+             if ($scope.userOptions.indexOf(k) == -1) {
+                 $scope.userOptions.push(k);
+             }
+          });
+      });
+      window.console.log($scope.userOptions);
     });
+    
 }
 
 // Single User
