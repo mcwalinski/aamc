@@ -13,27 +13,36 @@
           </div>
           <br><br>
            
-          <div class="col-md-12">    
+           <div class="col-md-12">    
 
-            <div class="col-md-6">
+            <div class="col-md-4 form-group">
               <h4>Select a user</h4>
               <label for="users"> Users: </label>
               <select ng-options="user.name for user in users | orderBy :selectedOption" name="userSelect" id="users" ng-model="selectedUser">
                 <option value="">-- select a user --</option>
               </select>
-              <span><b>Selected User</b>: {{selectedUser.name}}</span>
+              <span><b>User</b>: {{selectedUser.name}}</span>
             </div>
             
-            <div class="col-md-6">
+            <div class="col-md-4 form-group">
               <h4>Select a sortable option</h4>
               <label for="options"> Options: </label>
               <select ng-options="option for option in userOptions" name="userOption" id="options" ng-model="selectedOption">
                 <option value="">-- select an option --</option>
               </select>
-              <span><b>Selected Option</b>: {{selectedOption}}</span>
+              <span><b>Option</b>: {{selectedOption}}</span>
             </div>
 
-            <div class="col-md-12">
+            <!-- <div class="col-md-4 form-group">
+              <h4>Select a user</h4>
+              <label for="users"> Users: </label>
+              <select ng-options="user.name for user in users | orderBy :selectedOption" name="userSelect" id="users" ng-model="selectedUser">
+                <option value="">-- select a user --</option>
+              </select>
+              <span><b>User</b>: {{selectedUser.name}}</span>
+            </div> -->
+
+            <div class="col-md-12 form-group">
               <input ng-model="query" type="text" class="form-control" id="userSearch" placeholder="Search..." autofocus>
             </div>
 
@@ -63,6 +72,10 @@
                 </tr>
               </tbody>
             </table>
+          </div>
+          <div class="col-md-12">
+            <h4>Users who are at Company: Romaguera-Crona</h4>
+            <li ng-repeat="user in users | hasCompany">{{user.name}} | {{user.company.name}}</li>
           </div>
         </div>
       </div>

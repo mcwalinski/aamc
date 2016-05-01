@@ -29,7 +29,7 @@ module.exports = function (grunt) {
 
               files:[
             //minify  css
-            {src:'public/stylesheets/style.combo.css', dest:'public/stylesheets/style.min.css'},
+            {src:'public/stylesheets/style.combo.css', dest:'public/stylesheets/style.min.css'}
             ]                                           
         }
         },
@@ -39,22 +39,11 @@ module.exports = function (grunt) {
                 {
                     src:[
                         //profile
-                        'public/javascripts/applications/ProfileApp.js',
-                        'public/javascripts/controllers/ProfileControllers.js',
-                        'public/javascripts/directives/ProfileDirectives.js',
-
-                        //sorting
-                        'public/javascripts/factories/UuidFactories.js',
-                        'public/javascripts/vendors/jquery-ui/jquery-ui.min.js',
-                        'public/javascripts/vendors/sortable/sortable.js',
-
-                        // Logging
-                        'public/javascripts/factories/loggingServices.js',
-
-                        //vendor resource
-                        'public/javascripts/vendors/angular-img-edit/angular-imgEditor.js'
+                        'public/javascripts/controller/contollers.js',
+                        'public/javascripts/factories/userServices.js',
+                        'public/javascripts/filters/filter.js'
                     ],
-                    dest:'public/javascripts/vendor.annotated.js'
+                    dest:'public/javascripts/app.annotated.js'
                 }
             ]
         }
@@ -70,16 +59,16 @@ module.exports = function (grunt) {
               files:[     
                       {
                         src:[
-                          'public/javascripts/vendors/es5-shim/2.3.0/es5-shim.min.js',
-                          'public/javascripts/resources/jquery/jquery.min.js',
-                          'public/javascripts/resources/bootstrap/dist/js/bootstrap.min.js',
-                          'public/javascripts/resources/angular/angular.min.js',
-                          'public/javascripts/resources/jcrop/js/jquery.Jcrop.min.js',
-                          'public/javascripts/vendors/angular-ui/ui-bootstrap-tpls-0.12.0.min.js',
-                          'public/javascripts/resources/angular-resource/angular-resource.js'
+                            'public/javascripts/resources/jquery/jquery.min.js',
+                            'public/javascripts/resources/angular/angular.js',
+                            'public/javascripts/resources/angular-filter/dist/angular-filter.min.js',
+                            'public/javascripts/resources/bootstrap/dist/js/bootstrap.min.js',
+                            'public/javascripts/resources/angular-resource/angular-resource.min.js'
                         ],
                         dest:'public/javascripts/vendor.min.js'
-                      }
+                      },
+
+                      {src:'public/javascripts/app.annotated.js', dest:'public/javascripts/app.min.js'},
                    
                     ]
                 }

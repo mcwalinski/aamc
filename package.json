@@ -17,6 +17,9 @@
     "morgan": "~1.5.1",
     "serve-favicon": "~2.2.0"
   },
+  "scripts": {
+    "test": "karma start karma.conf.js"
+  },
   "devDependencies": {
     "grunt": "*",
     "grunt-contrib-compress": "*",
@@ -26,6 +29,10 @@
     "grunt-contrib-uglify": "*",
     "grunt-contrib-watch": "*",
     "grunt-ng-annotate": "*",
-    "grunt-retire": "*"
+    "grunt-retire": "*",
+    "jasmine-core": "^2.4.1",
+    "karma": "^0.13.22",
+    "karma-chrome-launcher": "^0.2.3",
+    "karma-jasmine": "^0.3.8"
   }
 }

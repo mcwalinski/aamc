@@ -16,3 +16,20 @@ angular.module('userFilter', [])
     return input.substring(0,1).toUpperCase()+input.substring(1);
   }
 })
+
+
+// Company filter
+.filter('hasCompany', function() {
+
+  // Create the return function and set the required parameter name to **input**
+    return function(input){
+    var out = [];
+    angular.forEach(input, function(employer){
+      if(employer.company.name === 'Romaguera-Crona'){
+        out.push(employer)
+      }
+    })
+    return out;
+  }
+
+});

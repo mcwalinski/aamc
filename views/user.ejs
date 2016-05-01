@@ -2,18 +2,18 @@
 <html ng-app="userApp"><html>
   <% include partials/nav.ejs %>  
   <body ng-controller="userCtrl">
-    <div class="container-fluid" ng-init="singleUser('<%= userId %>')">
+    <div class="container-fluid" ng-init="getUsers()">
       <div class="row">
-        <div class="col-sm-12 col-md-12 main">
+        <div class="col-sm-12 col-md-12 main" ng-repeat="user in users | filter:{id:<%= userId %>}:true">
           
           <h1 class="page-header">
-            {{user}}
+            {{user.name}}
           </h1>
           
          
           <div class="col-sm-12">
-            <p>
-              {{user}}
+            <p ng-repeat="(k,v) in user">
+             {{k}}: {{v}}
             </p>
           </div>
           

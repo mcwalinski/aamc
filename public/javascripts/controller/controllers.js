@@ -43,7 +43,7 @@ $scope.getUsers = function() {
 $scope.singleUser = function(value) {
   config ={};
   userService.getSingleUser({id:value}, function(data){
-      $scope.app = data.applicationInfo;
+      $scope.userPage = data.applicationInfo;
   });
 }
 
