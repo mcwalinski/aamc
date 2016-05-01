@@ -17,7 +17,7 @@ module.exports = function (grunt) {
             css:{
                 
                 files:[
-                    //concat css
+                    //concat css files
                     {src:['public/stylesheets/dashboard.css','public/stylesheets/style.css'],dest:'public/stylesheets/style.combo.css'},
                     ]                                                   
                 }
@@ -26,7 +26,7 @@ module.exports = function (grunt) {
            css:{
 
               files:[
-            //minify  css
+            //minify css files
             {src:'public/stylesheets/style.combo.css', dest:'public/stylesheets/style.min.css'}
             ]                                           
         }
@@ -48,8 +48,6 @@ module.exports = function (grunt) {
         },
         uglify: {  
             options:{
-                // beautify: true,
-                // mangle: false,
                 sourceMap: true
             },        
             js:{
@@ -72,14 +70,13 @@ module.exports = function (grunt) {
                 }
             },
             retire: {
-              js: ['public/javascripts/*.js'], /** Which js-files to scan. **/
+              js: ['public/javascripts/*.js'], /** DetermineWhich js-files to scan. **/
               node: ['/'] /** Which node directories to scan (containing package.json). **/
             },
              watch:{
                files:['public/stylesheets/*','public/javascripts/controllers/*','public/javascripts/directives/*','public/javascripts/factories/*','public/javascripts/filters/*','public/javascripts/resources/*','public/javascripts/vendor/*'],
                tasks:['concat', 'cssmin', 'ngAnnotate','uglify', 'retire']
-            }
-            
+            }            
        });
 
       // Load the plugins
@@ -91,7 +88,6 @@ module.exports = function (grunt) {
       grunt.loadNpmTasks('grunt-contrib-copy');
       grunt.loadNpmTasks('grunt-retire');
 
-      // Default task(s).    
+      // Default task(s) to run on grunt.    
       grunt.registerTask('default', ['concat', 'cssmin','ngAnnotate','uglify', 'retire']);
-
     };
