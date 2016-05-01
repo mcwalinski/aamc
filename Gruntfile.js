@@ -3,11 +3,9 @@
 -------------------
 npm install grunt -g 
 
-
 To Watch Files: 
 ---------------
 grunt watch
-
 */
 
 module.exports = function (grunt) {

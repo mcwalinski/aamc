@@ -4,18 +4,14 @@
   <body ng-controller="userCtrl">
     <div class="container-fluid" ng-init="getUsers()">
       <div class="row">
-        <div class="col-sm-12 col-md-12 main">
-          
-          <h1 class="page-header">AAMC Users - Dashboard</h1>
-          
+        <div class="col-sm-12 col-md-12 main">         
+          <h1 class="page-header">AAMC Users - Dashboard</h1>          
           <div class="col-sm-12">
             Hello welcome to your directory.  You can search below.
           </div>
-          <br><br>
-           
+          <br><br>           
            <div class="col-md-12">    
-
-            <div class="col-md-4 form-group">
+            <div class="col-md-6 form-group">
               <h4>Select a user</h4>
               <label for="users"> Users: </label>
               <select ng-options="user.name for user in users | orderBy :selectedOption" name="userSelect" id="users" ng-model="selectedUser">
@@ -24,7 +20,7 @@
               <span><b>User</b>: {{selectedUser.name}}</span>
             </div>
             
-            <div class="col-md-4 form-group">
+            <div class="col-md-6 form-group">
               <h4>Select a sortable option</h4>
               <label for="options"> Options: </label>
               <select ng-options="option for option in userOptions" name="userOption" id="options" ng-model="selectedOption">
@@ -33,6 +29,7 @@
               <span><b>Option</b>: {{selectedOption}}</span>
             </div>
 
+            <!-- Display the option selected value *** NOT USED/WORKING *** -->
             <!-- <div class="col-md-4 form-group">
               <h4>Select a user</h4>
               <label for="users"> Users: </label>
@@ -45,7 +42,6 @@
             <div class="col-md-12 form-group">
               <input ng-model="query" type="text" class="form-control" id="userSearch" placeholder="Search..." autofocus>
             </div>
-
           </div>
 
           <div class="table-responsive">
@@ -80,7 +76,6 @@
         </div>
       </div>
     </div>
-
    </body>
    <% include partials/javascripts.ejs %>  
 </html>

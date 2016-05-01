@@ -1,13 +1,34 @@
  // app/routes.js
 
-// grab the users model
+// grab the users model for mongoose *** Not needed ***
 var Users = require('./models/users');
 
     module.exports = function(app) {
 
-        // Server routes.  Handles api calls, authentication etc
+        // Frontend routes 
 
-        // get all api call
+        // route to handle root request
+        app.get('/', function(req, res) {
+            // load our public/index.ejs file
+            res.render('index'); 
+        });
+
+        // route to handle user request
+        app.get('/user/:userId', function(req, res) {
+            // load our public/user.ejs file and pass the user id
+            res.render('user', { userId: req.params.userId }); 
+        });
+
+        // catch 404 and forward to error handler
+        app.get('*', function(req, res) {
+          res.render('error', { title: '404 - No User' }); // load our public/error.ejs file
+        });
+
+
+
+        // Server routes.  Handles api calls, authentication etc.  *** NOT USED ***
+
+        // get users all api call
         app.get('/api/users', function(req, res) {
             // use mongoose to get all users in the database
             // console.log('get users');
@@ -56,31 +77,6 @@ var Users = require('./models/users');
                     res.send(err);
                 res.json({ message: 'Successfully removed user'});
             });
-        });
-
-        // Frontend routes 
-
-        // route to handle root request
-        app.get('/', function(req, res) {
-            // load our public/index.ejs file
-            res.render('index'); 
-        });
-
-        // route to handle user request
-        app.get('/user/:userId', function(req, res) {
-            // load our public/user.ejs file and pass the user id
-            res.render('user', { userId: req.params.userId }); 
-        });
-
-        // route to create request
-        app.get('/create', function(req, res) {
-            // load our public/create.ejs file
-            res.render('create'); 
-        });
-
-        // catch 404 and forward to error handler
-        app.get('*', function(req, res) {
-          res.render('error', { title: 'Express' }); // load our public/error.ejs file
         });
 
     };

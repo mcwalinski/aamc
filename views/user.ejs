@@ -5,22 +5,17 @@
     <div class="container-fluid" ng-init="getUsers()">
       <div class="row">
         <div class="col-sm-12 col-md-12 main" ng-repeat="user in users | filter:{id:<%= userId %>}:true">
-          
           <h1 class="page-header">
             {{user.name}}
           </h1>
-          
-         
           <div class="col-sm-12">
             <p ng-repeat="(k,v) in user">
              {{k}}: {{v}}
             </p>
-          </div>
-          
+          </div>   
         </div>
       </div>
     </div>
-
    </body>
    <% include partials/javascripts.ejs %>  
 </html>

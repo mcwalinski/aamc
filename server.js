@@ -17,7 +17,7 @@ var mongoose   	   = require('mongoose');
 var port = process.env.PORT || 3000; 
 
 // connect to our mongoDB database 
-// (uncomment after you enter in your own credentials in config/db.js)
+// (uncomment after you enter in credentials in config/db.js)
 // mongoose.connect(db.url); 
 
 // view engine setup
@@ -44,11 +44,11 @@ app.use(express.static(__dirname + '/public'));
 require('./app/routes')(app); // configure our routes
 
 // start app ===============================================
-// startup our app at http://localhost:3000
+// startup app at http://localhost:3000
 app.listen(port);               
 
 // console log to start app                    
 console.log('Application is running on port ' + port);
 
-// expose app           
+// expose app to use in routes files       
 exports = module.exports = app;
