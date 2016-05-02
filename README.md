@@ -4,6 +4,7 @@ Angular APP for AAMC
 # Component Versions
 
 ExpressJS - v 4.12.2
+
 AngularJS - v 1.4.7
 
 ##To Run Locally##
