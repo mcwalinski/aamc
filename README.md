@@ -20,6 +20,10 @@ $ npm install
 
 $ bower install
 
+$ grunt
+
+You will see an error about the angular version.  Ignore this, it is part of the testing.  The needed files and tasks will be created and run.
+
 $ node server.js
 
 In your browser visit localhost:3000 the app will load up there.
