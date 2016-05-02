@@ -21,7 +21,6 @@ angular.module('userFilter', [])
 
 // Company filter - Will return only items whose employer matches "Romaguera-Crona".  Should expand to pass a variable.
 .filter('hasCompany', function() {
-
   // Create the return function and set the required parameter name to **input**
     return function(input){
     var out = [];
@@ -32,5 +31,4 @@ angular.module('userFilter', [])
     })
     return out;
   }
-
 });
