@@ -38,6 +38,7 @@ module.exports = function (grunt) {
                     src:[
                         //profile
                         'public/javascripts/controller/contollers.js',
+                        'public/javascripts/factories/userFactorygrunt.js',
                         'public/javascripts/factories/userServices.js',
                         'public/javascripts/filters/filter.js'
                     ],

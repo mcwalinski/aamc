@@ -10,8 +10,16 @@
             Hello welcome to your directory.  You can search below.
           </div>
           <br><br>           
-           <div class="col-md-12">    
-            <div class="col-md-6 form-group">
+           <div class="col-md-12">   
+
+            <div class="col-md-2 form-group">
+              <h4> Prefix / Suffix Name </h4>
+              <p>
+                <b>Service Name:</b> {{serviceName}}
+              </p>
+            </div>
+
+            <div class="col-md-5 form-group">
               <h4>Select a user</h4>
               <label for="users"> Users: </label>
               <select ng-options="user.name for user in users | orderBy :selectedOption" name="userSelect" id="users" ng-model="selectedUser">
@@ -20,7 +28,7 @@
               <span><b>User</b>: {{selectedUser.name}}</span>
             </div>
             
-            <div class="col-md-6 form-group">
+            <div class="col-md-5 form-group">
               <h4>Select a sortable option</h4>
               <label for="options"> Options: </label>
               <select ng-options="option for option in userOptions" name="userOption" id="options" ng-model="selectedOption">
@@ -54,7 +62,19 @@
               <tbody>
                 <tr ng-repeat="user in users | filter:query | orderBy :selectedOption">
                   <td>{{ user.id }}</td>
-                  <td><a href="/user/{{user.id}}">{{ user.name }}</a></td>
+                  <td>
+                    <p>
+                      <a href="/user/{{user.id}}">{{ user.name }}</a>
+                    </p> 
+                    <p>
+                      <span>
+                        <button type="button" ng-click="userPrefix(user.name)" class="btn btn-primary">Prefix</button> 
+                      </span>
+                      <span>
+                        <button type="button" ng-click="userSuffix(user.name)" class="btn btn-primary">Suffix</button> 
+                      </span>
+                    </p>
+                  </td>
                   <td>{{ user.username }}</td>
                   <td><a href="mailto:{{user.email}}?Subject={{user.company.catchPhrase}}" target="_top">{{ user.email | lowercase}}</td>
                   <td> 

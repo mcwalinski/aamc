@@ -1,17 +1,12 @@
-// Service to get single user
+// Service to manipulate users
 
 angular.module("userServices", ['ngResource'])
-       .factory('userService', function($resource){
-         return $resource('/:action/:id',
-          {
-            action:'@action'
-          },
-          {
-            //gets
-            getSingleUser:{
-              method:'GET',
-              params:{action:'user'}
-            }
-          }
-        );
-       })
+
+.service('userService', function(){
+    this.prefix = function(name){
+        return "Dr. " + name + " ";
+    };        
+    this.suffix = function(name){
+        return " " + name + " Jr";
+    };              
+});
