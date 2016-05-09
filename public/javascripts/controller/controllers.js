@@ -17,7 +17,6 @@ $scope.getUsers = function() {
     $http.get("//jsonplaceholder.typicode.com/users", config, {}).
   		success(function(data) {
     	$scope.users = data;  // Set scope value of users to respone of above api call
-
       // For each user object in the returned array, add department key to the company array.
       angular.forEach($scope.users, function(user){
          // Adding department with value of shoes

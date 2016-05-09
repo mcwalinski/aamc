@@ -1,13 +1,13 @@
 angular.module('userFilter', [])
 
 // Creation date filter.  Not used, but would take the unique mongodb object id and parse it into the created date.
-.filter('creationDate', [function () {
-  return function (value) {
-    var dateFromObjectId = parseInt(value.substring(0, 8), 16) * 1000;
-    var createdDate = new Date(dateFromObjectId)
-    return createdDate;
-  };
-}])
+// .filter('creationDate', [function () {
+//   return function (value) {
+//     var dateFromObjectId = parseInt(value.substring(0, 8), 16) * 1000;
+//     var createdDate = new Date(dateFromObjectId)
+//     return createdDate;
+//   };
+// }])
 
 // Capitalization Filter - Will capitalize the returned value
 .filter('capitalize', function() {
@@ -25,7 +25,7 @@ angular.module('userFilter', [])
     return function(input){
     var out = [];
     angular.forEach(input, function(employer){
-      if(employer.company.name === 'Romaguera-Crona'){
+      if(employer.company.name === 'Deckow-Crist'){
         out.push(employer)
       }
     })
